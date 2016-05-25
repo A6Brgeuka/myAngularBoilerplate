@@ -1,0 +1,24 @@
+{
+  "name": "angular-boilerplate",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "a6Brgeuka <a6Brgeuka@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
+    "moment": "^2.13.0",
+    "lodash": "^4.13.1"
+  }
+}
