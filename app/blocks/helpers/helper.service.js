@@ -43,7 +43,7 @@
                 });
             }
             return target;
-        };
+        }
 
         function toPascalCase(target) {
             if (!target) return null;

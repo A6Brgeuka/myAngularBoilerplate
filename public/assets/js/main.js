@@ -42,12 +42,12 @@
 "use strict";
 
 (function () {
-    angular.module("TestApp.about", ["TestApp.core"]);
+    angular.module("TestApp.about", []);
 })();
 "use strict";
 
 (function () {
-    angular.module("TestApp.home", ["TestApp.core"]);
+    angular.module("TestApp.home", []);
 })();
 "use strict";
 
@@ -133,7 +133,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 });
             }
             return target;
-        };
+        }
 
         function toPascalCase(target) {
             if (!target) return null;
@@ -210,11 +210,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     function config($stateProvider, $urlRouterProvider) {
         $stateProvider.state("home", {
             url: "/",
-            templateUrl: "app/pages/home/home.html",
+            templateUrl: "public/assets/templates/pages/home/home.html",
             controller: "HomeController as vm"
         }).state("about", {
             url: "/about",
-            templateUrl: "app/pages/about/about.html",
+            templateUrl: "public/assets/templates/pages/about/about.html",
             controller: "AboutController as vm"
         });
 
@@ -256,6 +256,30 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
     }
 })();
+"use strict";
+
+(function () {
+    angular.module("blocks.services").factory('vkApi', vkApi);
+
+    vkApi.$inject = ["$http"];
+
+    function vkApi($http) {
+
+        var service = {
+            getWalls: getWalls
+        };
+
+        return service;
+
+        function getWalls() {
+            var methodName = 'groups.getMembers';
+            var groupID = 76922753;
+            var url = 'https://api.vk.com/method/' + methodName + '?group_id=' + groupID + '&callback=JSON_CALLBACK';
+
+            return $http.jsonp(url).success();
+        }
+    }
+});
 "use strict";
 
 (function () {

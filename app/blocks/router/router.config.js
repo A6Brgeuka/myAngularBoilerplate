@@ -10,12 +10,12 @@
         $stateProvider
             .state("home", {
                 url: "/",
-                templateUrl: "app/pages/home/home.html",
+                templateUrl: "public/assets/templates/pages/home/home.html",
                 controller: "HomeController as vm"
             })
             .state("about", {
                 url: "/about",
-                templateUrl: "app/pages/about/about.html",
+                templateUrl: "public/assets/templates/pages/about/about.html",
                 controller: "AboutController as vm"
             });
 

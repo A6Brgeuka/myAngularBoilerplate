@@ -1,5 +1,3 @@
 (function () {
-    angular.module("TestApp.about", [
-        "TestApp.core"
-    ]);
+    angular.module("TestApp.about", []);
 })();

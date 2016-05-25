@@ -12,11 +12,13 @@
     "babel-core": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-register": "^6.9.0",
+    "del": "^2.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-connect": "^4.0.0",
     "gulp-inject": "^4.1.0",
-    "gulp-rename": "^1.2.2"git i
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1"
   }
 }
