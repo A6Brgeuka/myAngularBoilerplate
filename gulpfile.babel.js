@@ -26,18 +26,14 @@ gulp.task('connect', () => {
 
 
 gulp.task('dev:js', () => {
-    const target = gulp.src('index.html');
 
-    const sources = gulp.src(['app/**/*.module.js', 'app/**/*.js'])
+    return gulp.src(['app/**/*.module.js', 'app/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(babel())
         // .pipe(uglify())
         .pipe(concat('main.js'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public/assets/js'));
-    
-    return target.pipe(inject(sources))
-        .pipe(gulp.dest('.'))
+        .pipe(gulp.dest('public/assets/js'))
         .pipe(connect.reload());
 });
 
