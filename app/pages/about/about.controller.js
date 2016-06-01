@@ -1,13 +1,13 @@
-(function () {
-    angular.module("TestApp.about")
-        .controller("AboutController", aboutController);
 
-    aboutController.$inject = [];
-
-    function aboutController() {
-
-        var vm = this;
-
+class AboutController {
+    constructor($scope){
+        this.title = "title";
+        $scope.title = "scopeTitle";
     }
+}
 
-})();
+AboutController.$inject = ["$scope"];
+
+
+angular.module("TestApp.about")
+    .controller("AboutController", AboutController);

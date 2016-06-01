@@ -1,39 +1,39 @@
-(function () {
-    angular.module("blocks.services")
-        .factory("TestService", testService);
 
-    testService.$inject = ["$q"];
+class testService {
 
-    function testService($q) {
+    constructor($q){
+        this.q = $q;
 
-        var service = {
-            getItems: getItems,
-            getItemsPromise: getItemsPromise,
-            getItem: getItem
-        };
-
-        var items = [
+        this.items = [
             { "text": "azaza",  "value": 1 },
             { "text": "ololo",  "value": 2 },
             { "text": "fuck",   "value": 3 }
         ];
-
-        return service;
-
-        function getItems(){
-            return items;
-        }
-
-        function getItemsPromise(){
-            var deferred = $q.defer();
-            deferred.resolve(items);
-            //deffered.reject("error");
-            return deferred.promise;
-        }
-
-        function getItem(index){
-            return items[index];
-        }
-
     }
-})();
+
+    getStr(){
+        return "test";
+    }
+
+    getItems(){
+        return this.items;
+    }
+
+    getItemsPromise(){
+        const deferred = this.q.defer();
+        deferred.resolve(this.items);
+        //deffered.reject("error");
+        return deferred.promise;
+    }
+
+    getItem(index) {
+        return this.items[index];
+    }
+}
+
+
+
+testService.$inject = ["$q"];
+
+angular.module("blocks.services")
+    .factory("TestService", () => new testService() );

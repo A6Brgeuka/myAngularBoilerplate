@@ -1,19 +1,17 @@
-(() => {
-    angular.module("TestApp.home")
-        .controller("HomeController", homeController);
 
-    homeController.$inject = [];
-
-    function homeController() {
-
-        const vm = this;
-
-        activate();
-
-        function activate(){
-            const title = "HOME";
-            vm.title = title;
-        }
-
+class homeController {
+    constructor(TestService){
+        this.test();
+        this.str = TestService.getStr();
     }
-})();
+
+    test(){
+        this.title = "title";
+    }
+}
+
+homeController.$inject = ["TestService"];
+
+angular.module('TestApp.home')
+    .controller('HomeController', homeController);
+

@@ -14,6 +14,22 @@ import uglify from 'gulp-uglify';
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
+const paths = {
+    scripts: {
+        srcModule: 'app/**/*.module.js',
+        src: 'app/**/*.js',
+        dest: 'public/assets/js'
+    },
+    style: {
+        src: 'app/**/*.scss',
+        dest: 'public/assets/css'
+    },
+    templates: {
+        src: 'app/**/*.html',
+        dest: 'public/assets/templates'
+    }
+};
+
 gulp.task('connect', () => {
     connect.server({
         root: '.',
@@ -24,9 +40,7 @@ gulp.task('connect', () => {
     });
 });
 
-
 gulp.task('dev:js', () => {
-
     return gulp.src(['app/**/*.module.js', 'app/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(babel())
@@ -48,11 +62,11 @@ gulp.task('dev:styles', () => {
 });
 
 gulp.task('dev:templates', ()=> {
-    return gulp.src(['app/**/*.html'])
+    return gulp.src('app/**/*.html')
         .pipe(templateCache({
             standalone: true
         }))
-        .pipe(gulp.dest( 'public/assets/templates'))
+        .pipe(gulp.dest('public/assets/templates'))
         .pipe(connect.reload());
 });
 
